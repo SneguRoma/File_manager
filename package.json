@@ -1,0 +1,20 @@
+{
+  "name": "file_manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SneguRoma/File_manager.git"
+  },
+  "author": "Aliaksei_Kazlou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SneguRoma/File_manager/issues"
+  },
+  "homepage": "https://github.com/SneguRoma/File_manager#readme"
+}
