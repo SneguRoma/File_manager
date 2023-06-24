@@ -1,8 +1,9 @@
 import { up } from "../nwd/up.js";
 import { cd } from "../nwd/cd.js";
+import { ls } from "../nwd/ls.js";
 import { oneCommandArr, twoCommandArr, invMsg } from "./constants.js";
 
-export const parseLine = (input) => {
+export const parseLine = async (input) => {
   let arrayOfLine = input.trim().split(/\s+/);
 
   const command = arrayOfLine[0];
@@ -13,6 +14,9 @@ export const parseLine = (input) => {
     switch (command) {
       case "up":
         up();
+        break;
+      case "ls":
+        await ls();
         break;
     }
   } else   if (
@@ -26,5 +30,5 @@ export const parseLine = (input) => {
         break;
     }
   } else console.log(invMsg);
-  console.log(`You are currently in ${process.cwd()}`);
+  
 };

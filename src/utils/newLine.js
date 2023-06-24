@@ -6,6 +6,6 @@ export function newLine(input) {
     process.exit();
   }
   else {
-    parseLine(input);
+    parseLine(input).then(console.log(`You are currently in ${process.cwd()}`));
   }
 }
