@@ -1,5 +1,6 @@
 import { up } from "../nwd/up.js";
-import { oneCommandArr, invMsg } from "./constants.js";
+import { cd } from "../nwd/cd.js";
+import { oneCommandArr, twoCommandArr, invMsg } from "./constants.js";
 
 export const parseLine = (input) => {
   let arrayOfLine = input.trim().split(/\s+/);
@@ -12,6 +13,16 @@ export const parseLine = (input) => {
     switch (command) {
       case "up":
         up();
+        break;
+    }
+  } else   if (
+    arrayOfLine.length === 2 &&
+    twoCommandArr.some((item) => item === command)
+  ) {
+    switch (command) {
+      case "cd":
+        console.log(arrayOfLine[1])
+        cd(arrayOfLine[1]);
         break;
     }
   } else console.log(invMsg);
