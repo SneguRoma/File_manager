@@ -1,6 +1,7 @@
 import { up } from "../nwd/up.js";
 import { cd } from "../nwd/cd.js";
 import { ls } from "../nwd/ls.js";
+import { cat } from "../file_operations/cat.js";
 import { oneCommandArr, twoCommandArr, invMsg } from "./constants.js";
 
 export const parseLine = async (input) => {
@@ -24,11 +25,14 @@ export const parseLine = async (input) => {
     twoCommandArr.some((item) => item === command)
   ) {
     switch (command) {
-      case "cd":
-        console.log(arrayOfLine[1])
+      case "cd":        
         cd(arrayOfLine[1]);
         break;
+      case "cat":        
+        await cat(arrayOfLine[1]);
+        break;
     }
+    
   } else console.log(invMsg);
   
 };
