@@ -2,6 +2,7 @@ import { up } from "../nwd/up.js";
 import { cd } from "../nwd/cd.js";
 import { ls } from "../nwd/ls.js";
 import { cat } from "../file_operations/cat.js";
+import { add } from "../file_operations/add.js";
 import { oneCommandArr, twoCommandArr, invMsg } from "./constants.js";
 
 export const parseLine = async (input) => {
@@ -30,6 +31,9 @@ export const parseLine = async (input) => {
         break;
       case "cat":        
         await cat(arrayOfLine[1]);
+        break;
+      case "add":
+        await add(arrayOfLine[1]);
         break;
     }
     
