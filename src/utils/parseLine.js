@@ -4,6 +4,7 @@ import { ls } from "../nwd/ls.js";
 import { cat } from "../file_operations/cat.js";
 import { add } from "../file_operations/add.js";
 import { rn } from "../file_operations/rn.js";
+import { cp } from "../file_operations/cp.js";
 import { oneCommandArr, twoCommandArr, threeCommandArr, invMsg } from "./constants.js";
 
 export const parseLine = async (input) => {
@@ -47,11 +48,11 @@ export const parseLine = async (input) => {
       case "rn":
         rn(arrayOfLine[1], arrayOfLine[2]);
         break;
-      case "cat":
-        await cat(arrayOfLine[1]);
+      case "cp":
+        await cp(arrayOfLine[1], arrayOfLine[2]);
         break;
       case "add":
-        await add(arrayOfLine[1]);
+        await rn(arrayOfLine[1], arrayOfLine[2]);
         break;
     }
 
