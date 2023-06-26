@@ -1,7 +1,4 @@
 import { cpus } from "node:os";
-import { stdout } from "node:process";
-import { errorMsg } from "../utils/constants.js";
-import { EOL } from "node:os";
 
 export const cpu = () => {
   const howManyCPU = cpus().length;

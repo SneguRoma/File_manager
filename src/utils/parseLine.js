@@ -8,6 +8,7 @@ import { cp } from "../file_operations/cp.js";
 import { mv } from "../file_operations/mv.js";
 import { rm } from "../file_operations/rm.js";
 import { os } from "../os/os.js";
+import { hash } from "../file_operations/hash.js";
 import {
   oneCommandArr,
   twoCommandArr,
@@ -50,6 +51,9 @@ export const parseLine = async (input) => {
         break;
       case "os":
         os(arrayOfLine[1]);
+        break;
+      case "hash":
+        hash(arrayOfLine[1]);
         break;
     }
   } else if (
