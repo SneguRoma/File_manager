@@ -14,7 +14,7 @@ export const hash = async (input) => {
       const data = stream.read();
       if (data) hash.update(data);
       else {
-          console.log(`${fileRead} hash - ${hash.digest("hex")} `);
+        console.log(`${fileRead} hash - ${hash.digest("hex")} `);
       }
     });
   } catch (err) {

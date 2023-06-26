@@ -9,6 +9,8 @@ import { mv } from "../file_operations/mv.js";
 import { rm } from "../file_operations/rm.js";
 import { os } from "../os/os.js";
 import { hash } from "../file_operations/hash.js";
+import { compress } from "../file_operations/compress.js";
+import { decompress } from "../file_operations/decompress.js";
 import {
   oneCommandArr,
   twoCommandArr,
@@ -69,6 +71,12 @@ export const parseLine = async (input) => {
         break;
       case "mv":
         await mv(arrayOfLine[1], arrayOfLine[2]);
+        break;
+      case "compress":
+        await compress(arrayOfLine[1], arrayOfLine[2]);
+        break;
+      case "decompress":
+        await decompress(arrayOfLine[1], arrayOfLine[2]);
         break;
     }
   } else console.log(invMsg);
