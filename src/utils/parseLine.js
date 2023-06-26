@@ -3,7 +3,8 @@ import { cd } from "../nwd/cd.js";
 import { ls } from "../nwd/ls.js";
 import { cat } from "../file_operations/cat.js";
 import { add } from "../file_operations/add.js";
-import { oneCommandArr, twoCommandArr, invMsg } from "./constants.js";
+import { rn } from "../file_operations/rn.js";
+import { oneCommandArr, twoCommandArr, threeCommandArr, invMsg } from "./constants.js";
 
 export const parseLine = async (input) => {
   let arrayOfLine = input.trim().split(/\s+/);
@@ -37,6 +38,23 @@ export const parseLine = async (input) => {
         break;
     }
     
+  }
+  else if (
+    arrayOfLine.length === 3 &&
+    threeCommandArr.some((item) => item === command)
+  ) {
+    switch (command) {
+      case "rn":
+        rn(arrayOfLine[1], arrayOfLine[2]);
+        break;
+      case "cat":
+        await cat(arrayOfLine[1]);
+        break;
+      case "add":
+        await add(arrayOfLine[1]);
+        break;
+    }
+
   } else console.log(invMsg);
   
 };

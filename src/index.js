@@ -29,7 +29,7 @@ if (userName) {
   });
 
   rl.on("line", (input) => {
-    newLine(input);
+    newLine(input, rl);
   });
 
   process.on("exit", () =>
