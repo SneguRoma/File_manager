@@ -7,6 +7,7 @@ import { rn } from "../file_operations/rn.js";
 import { cp } from "../file_operations/cp.js";
 import { mv } from "../file_operations/mv.js";
 import { rm } from "../file_operations/rm.js";
+import { os } from "../os/os.js";
 import {
   oneCommandArr,
   twoCommandArr,
@@ -46,6 +47,9 @@ export const parseLine = async (input) => {
         break;
       case "rm":
         await rm(arrayOfLine[1]);
+        break;
+      case "os":
+        os(arrayOfLine[1]);
         break;
     }
   } else if (
