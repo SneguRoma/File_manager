@@ -5,7 +5,14 @@ import { cat } from "../file_operations/cat.js";
 import { add } from "../file_operations/add.js";
 import { rn } from "../file_operations/rn.js";
 import { cp } from "../file_operations/cp.js";
-import { oneCommandArr, twoCommandArr, threeCommandArr, invMsg } from "./constants.js";
+import { mv } from "../file_operations/mv.js";
+import { rm } from "../file_operations/rm.js";
+import {
+  oneCommandArr,
+  twoCommandArr,
+  threeCommandArr,
+  invMsg,
+} from "./constants.js";
 
 export const parseLine = async (input) => {
   let arrayOfLine = input.trim().split(/\s+/);
@@ -23,24 +30,25 @@ export const parseLine = async (input) => {
         await ls();
         break;
     }
-  } else   if (
+  } else if (
     arrayOfLine.length === 2 &&
     twoCommandArr.some((item) => item === command)
   ) {
     switch (command) {
-      case "cd":        
+      case "cd":
         cd(arrayOfLine[1]);
         break;
-      case "cat":        
+      case "cat":
         await cat(arrayOfLine[1]);
         break;
       case "add":
         await add(arrayOfLine[1]);
         break;
+      case "rm":
+        await rm(arrayOfLine[1]);
+        break;
     }
-    
-  }
-  else if (
+  } else if (
     arrayOfLine.length === 3 &&
     threeCommandArr.some((item) => item === command)
   ) {
@@ -51,11 +59,9 @@ export const parseLine = async (input) => {
       case "cp":
         await cp(arrayOfLine[1], arrayOfLine[2]);
         break;
-      case "add":
-        await rn(arrayOfLine[1], arrayOfLine[2]);
+      case "mv":
+        await mv(arrayOfLine[1], arrayOfLine[2]);
         break;
     }
-
   } else console.log(invMsg);
-  
 };

@@ -6,7 +6,7 @@ import { errorMsg } from "../utils/constants.js";
 export const cat = async (input) => {
   try {
     const fileRead = path.resolve(input);
-    const stream = createReadStream(fileRead, "utf-8");
+    const stream = createReadStream(fileRead);
     stream.pipe(stdout);
     stream.on("end", console.log);
   } catch (err) {
